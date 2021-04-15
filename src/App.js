@@ -3,6 +3,7 @@ import {useState } from "react";
 import "./App.css";
 
 function useFormState({ initialValues }) {
+  const [errors, setErrors] = useState({});
   const [values, setValues] = useState(initialValues);
 
   function handleChanger(event) {
@@ -13,8 +14,14 @@ function useFormState({ initialValues }) {
       [fieldName]: value,
     });
   }
+  function validateValues(values) {
+    setErrors(validate(values))
+  }
   return {
     values,
+    erros,
+    setErrors,
+    validateValues,
     handleChanger,
   };
 }
@@ -32,7 +39,6 @@ function validate(values) {
   return errors;
 }
 function App() {
-  const [errors, setErrors] = useState({});
   const formState = useFormState({
     initialValues: {
       email: "teste@",
@@ -40,13 +46,14 @@ function App() {
     },
   });
 
+
   return (
     <main>
       <div>
         <form
           onSubmit={(event) => {
             event.preventDefault();
-            setErrors(validate(formState.values));
+            formState.validateValues(formState.values);
             console.log(formState.values);
             alert("Olha o console!");
           }}
@@ -61,8 +68,8 @@ function App() {
               onChange={formState.handleChanger}
               value={formState.values.email}
             />
-            {errors.email && (
-              <span className="formField_error">{errors.email}</span>
+            {formState.errors.email && (
+              <span className="formField_error">{formState.errors.email}</span>
             )}
           </div>
           <div>
@@ -75,8 +82,8 @@ function App() {
               onChange={formState.handleChanger}
               value={formState.values.senha}
             />
-            {errors.senha && (
-              <span className="formField_error">{errors.senha}</span>
+            {formState.errors.senha && (
+              <span className="formField_error">{formState.errors.senha}</span>
             )}
           </div>
           <div>
