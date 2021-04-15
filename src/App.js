@@ -1,55 +1,89 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
-import './App.css';
+import React from "react";
+import { useEffect, useState } from "react";
+import "./App.css";
 
+function useFormState({ initialValues }) {
+  const [values, setValues] = useState(initialValues);
+
+  function handleChanger(event) {
+    const fieldName = event.target.getAttribute("name");
+    const value = event.target.value;
+    setValues({
+      ...values,
+      [fieldName]: value,
+    });
+  }
+  return {
+    values,
+    handleChanger,
+  };
+}
+function validate(values) {
+  const errors = {};
+
+  if (!values.email.includes("@")) {
+    errors.email = "Please, insert a valid name";
+  }
+  if (!values.senha.length < 8) {
+   errors.senha="Please, insert a valid password"
+  }
+
+  
+  return errors;
+}
 function App() {
-  const [date, setDate] = useState(null);
-  useEffect(() => {
-    async function getDate() {
-      const res = await fetch('/api/date');
-      const newDate = await res.text();
-      setDate(newDate);
-    }
-    getDate();
-  }, []);
+  const [errors, setErrors] = useState({});
+  const formState = useFormState({
+    initialValues: {
+      email: "teste@",
+      senha: "teste",
+    },
+  });
+
   return (
     <main>
-      <h1>Create React App + Go API</h1>
-      <h2>
-        Deployed with{' '}
-        <a
-          href="https://vercel.com/docs"
-          target="_blank"
-          rel="noreferrer noopener"
+      <div>
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            setErrors(validate(formState.values));
+            console.log(formState.values);
+            alert("Olha o console!");
+          }}
         >
-          Vercel
-        </a>
-        !
-      </h2>
-      <p>
-        <a
-          href="https://github.com/vercel/vercel/tree/master/examples/create-react-app"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          This project
-        </a>{' '}
-        was bootstrapped with{' '}
-        <a href="https://facebook.github.io/create-react-app/">
-          Create React App
-        </a>{' '}
-        and contains three directories, <code>/public</code> for static assets,{' '}
-        <code>/src</code> for components and content, and <code>/api</code>{' '}
-        which contains a serverless <a href="https://golang.org/">Go</a>{' '}
-        function. See{' '}
-        <a href="/api/date">
-          <code>api/date</code> for the Date API with Go
-        </a>
-        .
-      </p>
-      <br />
-      <h2>The date according to Go is:</h2>
-      <p>{date ? date : 'Loading date...'}</p>
+          <div>
+            <label htmlFor="">E-mail</label>
+            <input
+              type="text"
+              placeholder="entre com email"
+              name="email"
+              id="email"
+              onChange={formState.handleChanger}
+              value={formState.values.email}
+            />
+            {errors.email && (
+              <span className="formField_error">{errors.email}</span>
+            )}
+          </div>
+          <div>
+            <label htmlFor="">Senha</label>
+            <input
+              type="text"
+              placeholder="entre com senha"
+              name="senha"
+              id="senha"
+              onChange={formState.handleChanger}
+              value={formState.values.senha}
+            />
+            {errors.senha && (
+              <span className="formField_error">{errors.senha}</span>
+            )}
+          </div>
+          <div>
+            <button type="submit">Cadastrar</button>
+          </div>
+        </form>
+      </div>
     </main>
   );
 }
