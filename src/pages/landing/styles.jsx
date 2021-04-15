@@ -20,7 +20,7 @@ export const Form = styled.form`
   justify-content: center;
   align-items: center;
 `;
-export const Content_Form = styled.form`
+export const ContentForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: flex-start;

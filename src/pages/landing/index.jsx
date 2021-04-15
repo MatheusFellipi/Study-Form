@@ -3,7 +3,7 @@ import useFormState from "../../services/formState";
 
 import { Input, Button } from "../../components";
 
-import { Content, Fomulario, Informacao, Form, Content_Form } from "./styles";
+import { Content, Fomulario, Informacao, Form, ContentForm } from "./styles";
 
 export default function Landing() {
   const formState = useFormState({
@@ -50,7 +50,7 @@ export default function Landing() {
               <span className="formField_error">{formState.errors.nome}</span>
             )}
           </Content_Form>
-          <Content_Form>
+          <ContentForm>
             <Input
               type="text"
               label="Cpf"
@@ -64,8 +64,8 @@ export default function Landing() {
             {formState.touched.cpf && formState.errors.cpf && (
               <span className="formField_error">{formState.errors.cpf}</span>
             )}
-          </Content_Form>
-          <Content_Form>
+          </ContentForm>
+          <ContentForm>
             <Input
               type="text"
               label="Telefone"
@@ -81,9 +81,9 @@ export default function Landing() {
                 {formState.errors.telefone}
               </span>
             )}
-          </Content_Form>
+          </ContentForm>
 
-          <Content_Form>
+          <ContentForm>
             <Input
               type="text"
               label="E_mail"
@@ -97,8 +97,8 @@ export default function Landing() {
             {formState.touched.email && formState.errors.email && (
               <span className="formField_error">{formState.errors.email}</span>
             )}
-          </Content_Form>
-          <Content_Form>
+          </ContentForm>
+          <ContentForm>
             <Input
               type="text"
               label="Senha"
@@ -112,7 +112,7 @@ export default function Landing() {
             {formState.touched.senha && formState.errors.senha && (
               <span className="formField_error">{formState.errors.senha}</span>
             )}
-          </Content_Form>
+          </ContentForm>
 
           <div>
             <Button type="submit" name="CADASTRO " />
