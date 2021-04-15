@@ -1,51 +1,26 @@
 import React from "react";
-import {useState } from "react";
+import useFormState from './services/formState'
 import "./App.css";
 
-function useFormState({ initialValues }) {
-  const [errors, setErrors] = useState({});
-  const [values, setValues] = useState(initialValues);
-
-  function handleChanger(event) {
-    const fieldName = event.target.getAttribute("name");
-    const value = event.target.value;
-    setValues({
-      ...values,
-      [fieldName]: value,
-    });
-  }
-  function validateValues(values) {
-    setErrors(validate(values))
-  }
-  return {
-    values,
-    erros,
-    setErrors,
-    validateValues,
-    handleChanger,
-  };
-}
-function validate(values) {
-  const errors = {};
-
-  if (!values.email.includes("@")) {
-    errors.email = "Please, insert a valid name";
-  }
-  if (!values.senha.length < 8) {
-   errors.senha="Please, insert a valid password"
-  }
-
-  
-  return errors;
-}
 function App() {
   const formState = useFormState({
     initialValues: {
-      email: "teste@",
+      email: "teste teste.com",
       senha: "teste",
     },
-  });
+    validate: function(values) {
+      const errors = {};
 
+      if (!values.email.includes("@")) {
+        errors.email = "Please, insert a valid name";
+      }
+      if (values.senha.length < 8) {
+        errors.senha = "Please, insert a valid password";
+      }
+
+      return errors;
+    },
+  });
 
   return (
     <main>
@@ -65,10 +40,11 @@ function App() {
               placeholder="entre com email"
               name="email"
               id="email"
+              onBlur={formState.handleBlur}
               onChange={formState.handleChanger}
               value={formState.values.email}
             />
-            {formState.errors.email && (
+            {formState.touched.email && formState.errors.email && (
               <span className="formField_error">{formState.errors.email}</span>
             )}
           </div>
@@ -79,10 +55,11 @@ function App() {
               placeholder="entre com senha"
               name="senha"
               id="senha"
+              onBlur={formState.handleBlur}
               onChange={formState.handleChanger}
               value={formState.values.senha}
             />
-            {formState.errors.senha && (
+            {formState.touched.senha && formState.errors.senha && (
               <span className="formField_error">{formState.errors.senha}</span>
             )}
           </div>
