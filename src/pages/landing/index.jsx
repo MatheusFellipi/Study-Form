@@ -35,7 +35,7 @@ export default function Landing() {
             event.preventDefault();
           }}
         >
-          <Content_Form>
+          <ContentForm>
             <Input
               label="Nome"
               type="text"
@@ -49,7 +49,7 @@ export default function Landing() {
             {formState.touched.nome && formState.errors.nome && (
               <span className="formField_error">{formState.errors.nome}</span>
             )}
-          </Content_Form>
+          </ContentForm>
           <ContentForm>
             <Input
               type="text"
