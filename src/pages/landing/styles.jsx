@@ -4,7 +4,7 @@ export const Content = styled.main`
   display: flex;
   height: 100vh;
   width: 90vw;
-  @media (min-width: 600px) {
+  @media (max-width: 600px) {
     display: flex;
     flex-direction: column;
   }
