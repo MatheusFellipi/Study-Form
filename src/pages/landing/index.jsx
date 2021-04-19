@@ -1,9 +1,21 @@
 import React from "react";
 import useFormState from "../../services/formState";
 
+import imgGit from "../../assets/git.png";
+import imgInsta from "../../assets/insta.png";
+import imgLinkedin from "../../assets/linkedin.png";
 import { Input, Button } from "../../components";
 
-import { Content, Fomulario, Informacao, Form, ContentForm } from "./styles";
+import {
+  Content,
+  Fomulario,
+  Informacao,
+  Form,
+  ContentForm,
+  Link,
+  Icon,
+  Footer,
+} from "./styles";
 
 export default function Landing() {
   const formState = useFormState({
@@ -28,7 +40,6 @@ export default function Landing() {
 
   return (
     <Content>
-      <Informacao></Informacao>
       <Fomulario>
         <Form
           onSubmit={(event) => {
@@ -119,6 +130,31 @@ export default function Landing() {
           </div>
         </Form>
       </Fomulario>
+      <Informacao>
+        <div>
+          <p>
+            Esse formulário e so para estudo ele não enviar a informação para
+            lugar nenhum fiz aprender com faz um formulário em react a idea do
+            código de estudo e do video do dev soltinho{" "}
+            <a href="https://www.youtube.com/playlist?list=PLTcmLKdIkOWmiWQae8SUFIhf-3Gs2XyYv">
+              engenharia reversa
+            </a>{" "}
+            usei como forma de estudo para realizar o formulário, com validações
+            o regex da para os campos.
+          </p>
+        </div>
+        <Footer>
+          <Link href="https://www.instagram.com/Mathe_Fellipi/">
+            <Icon src={imgGit} alt="" />
+          </Link>
+          <Link href="https://www.linkedin.com/in/matheusfellipiribeiro/">
+            <Icon src={imgInsta} alt="" />
+          </Link>
+          <Link href="https://github.com/MatheusFellipi/Study-Form">
+            <Icon src={imgLinkedin} alt="" />
+          </Link>
+        </Footer>
+      </Informacao>
     </Content>
   );
 }

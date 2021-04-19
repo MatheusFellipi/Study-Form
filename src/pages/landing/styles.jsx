@@ -2,15 +2,17 @@ import styled from "styled-components";
 
 export const Content = styled.main`
   display: flex;
-  box-sizing: border-box;
   height: 100vh;
-  width: 100vw;
+  width: 90vw;
+  @media (min-width: 600px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 export const Fomulario = styled.div`
-  padding:5rem;
+  padding: 5rem;
 `;
 export const Informacao = styled.div`
-  background: red;
   width: 50vw;
   height: 100vh;
 `;
@@ -24,5 +26,15 @@ export const ContentForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height:6rem;
+  height: 6rem;
+`;
+export const Footer = styled.footer`
+  bottom: 0px;
+`;
+export const Link = styled.a`
+  margin: 1rem;
+`;
+export const Icon = styled.img`
+  width: 1.5rem;
+  height: 1.5rem;
 `;
