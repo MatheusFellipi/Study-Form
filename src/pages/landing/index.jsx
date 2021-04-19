@@ -180,13 +180,13 @@ export default function Landing() {
         </div>
         <Footer>
           <Link href="https://www.instagram.com/Mathe_Fellipi/">
-            <Icon src={imgGit} alt="" />
-          </Link>
-          <Link href="https://www.linkedin.com/in/matheusfellipiribeiro/">
             <Icon src={imgInsta} alt="" />
           </Link>
-          <Link href="https://github.com/MatheusFellipi/Study-Form">
+          <Link href="https://www.linkedin.com/in/matheusfellipiribeiro/">
             <Icon src={imgLinkedin} alt="" />
+          </Link>
+          <Link href="https://github.com/MatheusFellipi/Study-Form">
+            <Icon src={imgGit} alt="" />
           </Link>
         </Footer>
       </Informacao>
