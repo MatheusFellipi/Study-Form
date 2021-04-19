@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function formState({initialValues,validate}) {
+export default function formState({ initialValues, validate }) {
   const [touched, setTouchedField] = useState({});
   const [errors, setErrors] = useState({});
   const [values, setValues] = useState(initialValues);

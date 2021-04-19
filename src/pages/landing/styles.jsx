@@ -38,3 +38,7 @@ export const Icon = styled.img`
   width: 1.5rem;
   height: 1.5rem;
 `;
+export const Errors = styled.span`
+  color: red;
+  font-size: 14px;
+`;

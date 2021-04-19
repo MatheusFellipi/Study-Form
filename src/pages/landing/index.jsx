@@ -15,6 +15,7 @@ import {
   Link,
   Icon,
   Footer,
+  Errors
 } from "./styles";
 
 export default function Landing() {
@@ -71,6 +72,7 @@ export default function Landing() {
         "insere um senha valida mínimo 8 caractere 1 maiúsculo e 1 numero ");
     }
   }
+
   return (
     <Content>
       <Fomulario>
@@ -78,6 +80,7 @@ export default function Landing() {
           onSubmit={(event) => {
             event.preventDefault();
             formState.validateValues(formState.values);
+            console.log(formState.errors);
             console.log(formState.values);
           }}
         >
@@ -93,7 +96,7 @@ export default function Landing() {
               value={formState.values.nome}
             />
             {formState.touched.nome && formState.errors.nome && (
-              <span className="formField_error">{formState.errors.nome}</span>
+              <Errors >{formState.errors.nome}</Errors>
             )}
           </ContentForm>
           <ContentForm>
@@ -108,7 +111,7 @@ export default function Landing() {
               value={formState.values.cpf}
             />
             {formState.touched.cpf && formState.errors.cpf && (
-              <span className="formField_error">{formState.errors.cpf}</span>
+              <Errors >{formState.errors.cpf}</Errors>
             )}
           </ContentForm>
           <ContentForm>
@@ -123,9 +126,9 @@ export default function Landing() {
               value={formState.values.telefone}
             />
             {formState.touched.telefone && formState.errors.telefone && (
-              <span className="formField_error">
+              <Errors >
                 {formState.errors.telefone}
-              </span>
+              </Errors>
             )}
           </ContentForm>
 
@@ -141,7 +144,7 @@ export default function Landing() {
               value={formState.values.email}
             />
             {formState.touched.email && formState.errors.email && (
-              <span className="formField_error">{formState.errors.email}</span>
+              <Errors >{formState.errors.email}</Errors>
             )}
           </ContentForm>
           <ContentForm>
@@ -156,7 +159,7 @@ export default function Landing() {
               value={formState.values.senha}
             />
             {formState.touched.senha && formState.errors.senha && (
-              <span className="formField_error">{formState.errors.senha}</span>
+              <Errors >{formState.errors.senha}</Errors>
             )}
           </ContentForm>
 
