@@ -46,27 +46,29 @@ export default function Landing() {
     }
   }
   function validateCpf(values, errors) {
-    let regex = /^[0-9]{3}\.[0-9]{3}\.[0-9]{3}\-[0-9]{2}|[0-9]{11}$/;
+    let regex = /^[0-9]{3}\.[0-9]{3}\.[0-9]{3}\-[0-9]{2}|[0-9]{11}$/; //eslint-disable-line
     if (!regex.test(values.cpf)) {
       return (errors.cpf = "insere o cpf valido");
     }
   }
   function validateTelefone(values, errors) {
-    let regex = /^((\(\d{2}\))|(\d{2}))[ ]?[9]?\d{4}[\-]?\d{4}$/;
+    let regex = /^((\(\d{2}\))|(\d{2}))[ ]?[9]?\d{4}[\-]?\d{4}$/; //eslint-disable-line
     if (!regex.test(values.telefone)) {
-      return (errors.telefone = "insere o telefone valido (xx) xxxxxxxxx ou (xx)xxxxxxxxx");
+      return (errors.telefone =
+        "insere o telefone valido (xx) xxxxxxxxx ou (xx)xxxxxxxxx");
     }
   }
   function validateEmail(values, errors) {
-    let regex = /^[a-zA-Z]{1}[a-zA-Z0-9\_\.\-]*[@]{1}[a-zA-Z]{3,}\.[a-zA-Z]{2,3}(\.[a-zA-Z]{2}){0,1}$/;
+    let regex = /^[a-zA-Z]{1}[a-zA-Z0-9\_\.\-]*[@]{1}[a-zA-Z]{3,}\.[a-zA-Z]{2,3}(\.[a-zA-Z]{2}){0,1}$/; //eslint-disable-line
     if (!regex.test(values.email)) {
       return (errors.email = "insere o email valido ");
     }
   }
   function validateSenha(values, errors) {
-    let regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    let regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/; //eslint-disable-line
     if (!regex.test(values.senha)) {
-      return (errors.senha = "insere um senha valida mínimo 8 caractere 1 maiúsculo e 1 numero ");
+      return (errors.senha =
+        "insere um senha valida mínimo 8 caractere 1 maiúsculo e 1 numero ");
     }
   }
   return (
@@ -75,8 +77,8 @@ export default function Landing() {
         <Form
           onSubmit={(event) => {
             event.preventDefault();
-            formState.validateValues(formState.values)
-            console.log(formState.values)
+            formState.validateValues(formState.values);
+            console.log(formState.values);
           }}
         >
           <ContentForm>
