@@ -21,29 +21,62 @@ export default function Landing() {
   const formState = useFormState({
     initialValues: {
       nome: "",
+      cpf: "",
+      telefone: "",
       email: "",
       senha: "",
     },
     validate: function(values) {
       const errors = {};
 
-      if (!values.email.includes("@")) {
-        errors.email = "Please, insert a valid name";
-      }
-      if (values.senha.length < 8) {
-        errors.senha = "Please, insert a valid password";
-      }
+      validateName(values, errors);
+      validateCpf(values, errors);
+      validateTelefone(values, errors);
+      validateEmail(values, errors);
+      validateSenha(values, errors);
 
       return errors;
     },
   });
 
+  function validateName(values, errors) {
+    let regex = /^[A-Za-z áàãâäéèêëíìîïóòôõöúùûü]{2,30}$/;
+    if (!regex.test(values.nome)) {
+      return (errors.nome = "insere um nome ate 30 caractere");
+    }
+  }
+  function validateCpf(values, errors) {
+    let regex = /^[0-9]{3}\.[0-9]{3}\.[0-9]{3}\-[0-9]{2}|[0-9]{11}$/;
+    if (!regex.test(values.cpf)) {
+      return (errors.cpf = "insere o cpf valido");
+    }
+  }
+  function validateTelefone(values, errors) {
+    let regex = /^((\(\d{2}\))|(\d{2}))[ ]?[9]?\d{4}[\-]?\d{4}$/;
+    if (!regex.test(values.telefone)) {
+      return (errors.telefone = "insere o telefone valido (xx) xxxxxxxxx ou (xx)xxxxxxxxx");
+    }
+  }
+  function validateEmail(values, errors) {
+    let regex = /^[a-zA-Z]{1}[a-zA-Z0-9\_\.\-]*[@]{1}[a-zA-Z]{3,}\.[a-zA-Z]{2,3}(\.[a-zA-Z]{2}){0,1}$/;
+    if (!regex.test(values.email)) {
+      return (errors.email = "insere o email valido ");
+    }
+  }
+  function validateSenha(values, errors) {
+    let regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    if (!regex.test(values.senha)) {
+      return (errors.senha = "insere um senha valida mínimo 8 caractere 1 maiúsculo e 1 numero ");
+    }
+  }
   return (
     <Content>
       <Fomulario>
         <Form
           onSubmit={(event) => {
             event.preventDefault();
+            formState.validateValues(formState.values)
+            console.log(formState.values)
           }}
         >
           <ContentForm>
