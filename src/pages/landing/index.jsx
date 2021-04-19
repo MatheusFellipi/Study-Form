@@ -15,7 +15,8 @@ import {
   Link,
   Icon,
   Footer,
-  Errors
+  Errors,
+  Info
 } from "./styles";
 
 export default function Landing() {
@@ -169,18 +170,18 @@ export default function Landing() {
         </Form>
       </Fomulario>
       <Informacao>
-        <div>
+        <Info>
           <p>
             Esse formulário e so para estudo ele não enviar a informação para
-            lugar nenhum fiz aprender com faz um formulário em react a idea do
-            código de estudo e do video do dev soltinho{" "}
+            lugar nenhum, e so para estudo, o formulário foi feito em react se framework,
+             mas a biblioteca de controle foi baseado no formik, código de estudo e do video do dev soltinho{" "}
             <a href="https://www.youtube.com/playlist?list=PLTcmLKdIkOWmiWQae8SUFIhf-3Gs2XyYv">
               engenharia reversa
             </a>{" "}
             usei como forma de estudo para realizar o formulário, com validações
             o regex da para os campos.
           </p>
-        </div>
+        </Info>
         <Footer>
           <Link href="https://www.instagram.com/Mathe_Fellipi/">
             <Icon src={imgInsta} alt="" />

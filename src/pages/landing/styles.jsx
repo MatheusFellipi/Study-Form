@@ -1,9 +1,9 @@
 import styled from "styled-components";
-
 export const Content = styled.main`
   display: flex;
-  height: 100vh;
+  height: 90vh;
   width: 90vw;
+
   @media (max-width: 600px) {
     display: flex;
     flex-direction: column;
@@ -14,7 +14,7 @@ export const Fomulario = styled.div`
 `;
 export const Informacao = styled.div`
   width: 50vw;
-  height: 100vh;
+  height: 90%;
 `;
 export const Form = styled.form`
   display: flex;
@@ -29,7 +29,9 @@ export const ContentForm = styled.form`
   height: 6rem;
 `;
 export const Footer = styled.footer`
-  bottom: 0px;
+  display: flex;
+  justify-content:flex-end;
+  margin-bottom: -10px;
 `;
 export const Link = styled.a`
   margin: 1rem;
@@ -41,4 +43,12 @@ export const Icon = styled.img`
 export const Errors = styled.span`
   color: red;
   font-size: 14px;
+`;
+export const Info = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  text-align: justify;
+  height: 100%;
 `;
