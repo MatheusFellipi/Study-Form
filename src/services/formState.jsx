@@ -4,26 +4,32 @@ export default function formState({ initialValues, validate }) {
   const [touched, setTouchedField] = useState({});
   const [errors, setErrors] = useState({});
   const [values, setValues] = useState(initialValues);
+
   useEffect(() => {
     validateValues(values);
   }, [values]);
 
+
   function handleChanger(event) {
     const fieldName = event.target.getAttribute("name");
     const value = event.target.value;
-
-    setValues({
-      ...values,
-      [fieldName]: value,
-    });
+    if (fieldName !== " ") {
+      setValues({
+        ...values,
+        [fieldName]: value,
+      });
+    }
   }
+
   function handleBlur(event) {
     const fieldName = event.target.getAttribute("name");
-    console.log(fieldName);
-    setTouchedField({
-      ...touched,
-      [fieldName]: true,
-    });
+    if (fieldName !== " ") {
+      setTouchedField({
+        ...touched,
+        [fieldName]: true,
+      });
+    }
+    console.log("coloca o atributo name na tag input");
   }
   function validateValues(values) {
     setErrors(validate(values));
