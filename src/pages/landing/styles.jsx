@@ -4,17 +4,22 @@ export const Content = styled.main`
   height: 90vh;
   width: 90vw;
 
-  @media (max-width: 600px) {
+  @media (max-width: 850px) {
     display: flex;
     flex-direction: column;
   }
 `;
 export const Fomulario = styled.div`
-  padding: 5rem;
+  padding: 3rem;
 `;
 export const Informacao = styled.div`
-  width: 50vw;
+  width: 100%;
   height: 90%;
+  margin-left:10rem;
+  @media (max-width: 999px) {
+    margin-left:0;
+
+  }
 `;
 export const Form = styled.form`
   display: flex;
@@ -30,11 +35,24 @@ export const ContentForm = styled.form`
 `;
 export const Footer = styled.footer`
   display: flex;
-  justify-content:flex-end;
+  justify-content: flex-end;
+  align-items: center;
   margin-bottom: -10px;
+`;
+export const FooterIcon = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5rem;
+  @media (max-width: 600px) {
+    margin-right: 2rem;
+  }
 `;
 export const Link = styled.a`
   margin: 1rem;
+  @media (max-width: 600px) {
+    margin: 0.5rem;
+  }
 `;
 export const Icon = styled.img`
   width: 1.5rem;
@@ -51,4 +69,13 @@ export const Info = styled.div`
   width: 80%;
   text-align: justify;
   height: 100%;
+  @media (max-width: 600px) {
+    width: 184%;
+  }
+  @media (max-width: 700px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
 `;

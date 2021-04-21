@@ -16,7 +16,8 @@ import {
   Icon,
   Footer,
   Errors,
-  Info
+  Info,
+  FooterIcon,
 } from "./styles";
 
 export default function Landing() {
@@ -97,7 +98,7 @@ export default function Landing() {
               value={formState.values.nome}
             />
             {formState.touched.nome && formState.errors.nome && (
-              <Errors >{formState.errors.nome}</Errors>
+              <Errors>{formState.errors.nome}</Errors>
             )}
           </ContentForm>
           <ContentForm>
@@ -112,7 +113,7 @@ export default function Landing() {
               value={formState.values.cpf}
             />
             {formState.touched.cpf && formState.errors.cpf && (
-              <Errors >{formState.errors.cpf}</Errors>
+              <Errors>{formState.errors.cpf}</Errors>
             )}
           </ContentForm>
           <ContentForm>
@@ -127,9 +128,7 @@ export default function Landing() {
               value={formState.values.telefone}
             />
             {formState.touched.telefone && formState.errors.telefone && (
-              <Errors >
-                {formState.errors.telefone}
-              </Errors>
+              <Errors>{formState.errors.telefone}</Errors>
             )}
           </ContentForm>
 
@@ -145,7 +144,7 @@ export default function Landing() {
               value={formState.values.email}
             />
             {formState.touched.email && formState.errors.email && (
-              <Errors >{formState.errors.email}</Errors>
+              <Errors>{formState.errors.email}</Errors>
             )}
           </ContentForm>
           <ContentForm>
@@ -160,7 +159,7 @@ export default function Landing() {
               value={formState.values.senha}
             />
             {formState.touched.senha && formState.errors.senha && (
-              <Errors >{formState.errors.senha}</Errors>
+              <Errors>{formState.errors.senha}</Errors>
             )}
           </ContentForm>
 
@@ -173,8 +172,9 @@ export default function Landing() {
         <Info>
           <p>
             Esse formulário e so para estudo ele não enviar a informação para
-            lugar nenhum, e so para estudo, o formulário foi feito em react se framework,
-             mas a biblioteca de controle foi baseado no formik, código de estudo e do video do dev soltinho{" "}
+            lugar nenhum, e so para estudo, o formulário foi feito em react se
+            framework, mas a biblioteca de controle foi baseado no formik,
+            código de estudo e do video do dev soltinho{" "}
             <a href="https://www.youtube.com/playlist?list=PLTcmLKdIkOWmiWQae8SUFIhf-3Gs2XyYv">
               engenharia reversa
             </a>{" "}
@@ -183,15 +183,17 @@ export default function Landing() {
           </p>
         </Info>
         <Footer>
-          <Link href="https://www.instagram.com/Mathe_Fellipi/">
-            <Icon src={imgInsta} alt="" />
-          </Link>
-          <Link href="https://www.linkedin.com/in/matheusfellipiribeiro/">
-            <Icon src={imgLinkedin} alt="" />
-          </Link>
-          <Link href="https://github.com/MatheusFellipi/Study-Form">
-            <Icon src={imgGit} alt="" />
-          </Link>
+          <FooterIcon>
+            <Link href="https://www.instagram.com/Mathe_Fellipi/">
+              <Icon src={imgInsta} alt="" />
+            </Link>
+            <Link href="https://www.linkedin.com/in/matheusfellipiribeiro/">
+              <Icon src={imgLinkedin} alt="" />
+            </Link>
+            <Link href="https://github.com/MatheusFellipi/Study-Form">
+              <Icon src={imgGit} alt="" />
+            </Link>
+          </FooterIcon>
         </Footer>
       </Informacao>
     </Content>
