@@ -11,12 +11,14 @@ export const Content = styled.main`
     display: flex;
     flex-direction: column;
     height: 130vh;
+    width: 100%;
     border-radius: 0px;
   }
  
 `;
 export const Fomulario = styled.div`
-  padding: 3rem;
+  height:100%;
+  width:100vw;
 `;
 export const Informacao = styled.div`
   width: 100%;
@@ -39,6 +41,10 @@ export const Form = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (max-width: 550px) {
+    margin-top:-10px;
+
+  }
 `;
 export const ContentForm = styled.form`
   display: flex;

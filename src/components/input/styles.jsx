@@ -17,7 +17,7 @@ export const Input = styled.input`
   height: 2rem;
   margin-top: 0.5rem;
   @media (max-width: 600px) {
-    width: 20rem;
+    width: 18rem;
     height: 2rem;
   }
 `;
