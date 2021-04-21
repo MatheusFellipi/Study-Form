@@ -1,21 +1,35 @@
-![React Logo](https://github.com/vercel/vercel/blob/master/packages/frameworks/logos/react.svg)
+# Formulario
 
-# React Example
+Esse formulário e so para estudo ele não enviar a informação para lugar nenhum, e so para estudo, o formulário foi feito em react se framework, mas a biblioteca de controle foi baseado no formik, código de estudo e do video do dev soltinho engenharia reversa usei como forma de estudo para realizar o formulário, com validações o regex da para os campos.
 
-This directory is a brief example of a [React](https://reactjs.org/) app with [Serverless Functions](https://vercel.com/docs/v2/serverless-functions/introduction) that can be deployed with Vercel and zero configuration.
+## esta Hospedado
+ - [Vercel](https://vercel.com)
+ - [Fomulario](https://study-form-hwh8i2j1u-matheusfellipi.vercel.app)
+## Pré-requisitos
 
-## Deploy Your Own
+Para executar o projeto é necessário ter as instalado no seu ambiente:
 
-Deploy your own React project, along with Serverless Functions, with Vercel.
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/vercel/vercel/tree/master/examples/create-react-app-functions)
+## Primeiros Passos
 
-_Live Example: https://create-react-app.now-examples.now.sh/_
+Siga os passos abaixo dentro da pasta após clonar ou baixar o projeto:
 
-### How We Created This Example
+```bash
+# Instalar as dependências do projeto
+$ yarn install
 
-To get started with React, along with [Serverless Functions](https://vercel.com/docs/v2/serverless-functions/introduction), with Vercel, you can use the [Create-React-App CLI](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app) to initialize the project:
+ou
 
-```shell
-$ npx create-react-app my-app
+$ npm install
+```
+
+```bash
+# Rodar o projeto
+$ yarn start
+
+ou
+
+$ npm start
 ```
